@@ -19,4 +19,50 @@ import java.util.*;
 @Produces(MediaType.APPLICATION_JSON)
 public class TimeResource {
     
+    private timeDAO dao;
+    
+    public TimeResource(timeDAO dao){
+        this.dao = dao;
+    }
+    
+    @POST
+    public Time create(Time time){
+        Time t = dao.create(time);
+        return t;
+    }
+    
+    @GET
+    public List<Time> read(){
+        return dao.lerTodos();
+    }
+    
+    @PUT
+    @Path("{id}")
+    public Response update(@PathParam("id") IntParam idParam, Time time) {
+        time.setId(idParam.get());
+        if (dao.atualizar(time)) {
+            return Response.ok().build();
+        }
+        
+        throw new WebApplicationException("Time com id=" + idParam.get()
+                                          + " não encontrado!", 404);
+    }
+    
+    @DELETE
+    @Path("{id}")
+    public Response delete(@PathParam("id") IntParam idParam) {
+        int id = idParam.get();
+        
+        if ( dao.apagar(id)) {
+            return Response.ok().build();
+        }
+        
+        throw new WebApplicationException("Professor com id=" + id 
+                                          + " não encontrado!", 404);
+    }
+    
+
+
 }
+    
+  

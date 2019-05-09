@@ -1,0 +1,152 @@
+#paineis-sobre {
+	margin-top: 20px;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+
+header h1 {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.titulo-depoimentos {
+	background-color: #0275D8;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	color: #FFF;
+	margin-bottom: 0;
+	font-size: 24px;
+}
+
+.botao {
+	font-family:  "Franklin Gothic Heavy";
+	font-size: 25px;
+	color: #ffffff;
+	padding: 10px 20px;
+	background: -moz-linear-gradient(
+		top,
+		#42cdff 0%,
+		#81e668);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#42cdff),
+		to(#81e668));
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border: 1px solid #8dbf79;
+	-moz-box-shadow:
+		0px 1px 3px rgba(3,0,3,0.5),
+		inset 0px 0px 2px rgba(250,247,250,1);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(3,0,3,0.5),
+		inset 0px 0px 2px rgba(250,247,250,1);
+	box-shadow:
+		0px 1px 3px rgba(3,0,3,0.5),
+		inset 0px 0px 2px rgba(250,247,250,1);
+	text-shadow:
+		0px -1px 0px rgba(15,15,15,0.4),
+		0px 1px 0px rgba(255,255,255,0.3);
+
+}
+
+.botao:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9efae8), color-stop(1, #008a8a) );
+	background:-moz-linear-gradient( center top, #9efae8 5%, #008a8a 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9efae8', endColorstr='#008a8a');
+	background-color:#9efae8;
+}
+
+
+.logo {
+	margin-top: 0px;
+	font-family:  "Franklin Gothic Heavy";
+	font-size: 50px;
+	color: white;
+	
+
+}
+
+.under {
+	padding: 5px;
+	margin-top: 0px;
+	font-family:  "Franklin Gothic Heavy";
+	font-size: 20px;
+	color: white;
+
+}
+
+.panel{
+	font-family:  "Arial";
+	font-size: 15px;
+	color: black;
+
+}
+
+.car-tam {
+	height: 800px;
+
+}
+
+footer {
+	background-color: #333;
+	color: #FFF;
+	padding: 20px;
+	margin-top: 10px;
+}
+
+footer address:last-child {
+	margin-bottom: 0;
+}
+
+
+ul li a{
+   color: aliceblue;
+      
+}
+
+.rodape-pagina {
+	height: 50px;
+	margin-bottom: 0px;
+
+}
+
+.container-car{
+    margin-left: 0px;
+    
+}
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+.invisivel{
+    display: none;
+    color: red;
+}
+
+#user-name{
+    text-align: center;
+    text-decoration-style: bold;
+    font-family: Franklin Gothic Heavy;
+    
+}
+  
+.correto{
+    background: #7CFC00;
+    width:400px;
+
+}

@@ -18,7 +18,7 @@ Renan
  * @author Dell
  */
 public class Time {
-    private long id;
+    private int id;
     private String nome;
     private String cidade;
     private String estado;
@@ -28,7 +28,7 @@ public class Time {
         //Constructor
     }
     
-    public Time(long id, String nome, String cidade, String estado){
+    public Time(int id, String nome, String cidade, String estado){
         this.id = id;
         this.cidade = cidade;
         this.estado = estado;
@@ -37,11 +37,11 @@ public class Time {
     
     SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -68,12 +68,8 @@ public class Time {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+    
 
-   
-    
-    
-    
-    
 }
 
 
