@@ -7,8 +7,8 @@ package ws_project;
 
 public class Jogo {
     private long id;
-    private Time timeA;
-    private Time timeB;
+    private String timeA;
+    private String timeB;
     private int GolsTimeA;
     private int GolsTimeB;
     
@@ -17,7 +17,7 @@ public class Jogo {
         //Constructor
     }
     
-    public Jogo(long id, Time timea, Time timeb,int golsTimeA, int golsTimeB){
+    public Jogo(long id, String timea, String timeb,int golsTimeA, int golsTimeB){
         this.id = id;
         this.timeA = timea;
         this.timeB = timeb;
@@ -37,11 +37,11 @@ public class Jogo {
         return id;
     }
 
-    public Time getTimeA() {
+    public String getTimeA() {
         return timeA;
     }
 
-    public Time getTimeB() {
+    public String getTimeB() {
         return timeB;
     }
 
@@ -57,11 +57,11 @@ public class Jogo {
         this.id = id;
     }
 
-    public void setTimeA(Time timeA) {
+    public void setTimeA(String timeA) {
         this.timeA = timeA;
     }
 
-    public void setTimeB(Time timeB) {
+    public void setTimeB(String timeB) {
         this.timeB = timeB;
     }
     
