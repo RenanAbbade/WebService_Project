@@ -1,0 +1,1 @@
+var saudação = confirm("Bem-vindo ao FIFA THE QUIZ! Clique no botão 'QUIZ' para iniciar, ou se preferir estude antes dessa partida em 'quero me preparar'!");
