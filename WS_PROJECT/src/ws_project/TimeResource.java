@@ -7,7 +7,7 @@ package ws_project;
 
 /**
  *
- * @author Dell
+ * @author Renan
  */
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
@@ -27,8 +27,7 @@ public class TimeResource {
     
     @POST
     public Time create(Time time){
-        Time t = dao.create(time);
-        return t;
+        return dao.create(time);      
     }
     
     @GET
@@ -38,22 +37,21 @@ public class TimeResource {
     
     @PUT
     @Path("{id}")
-    public Response update(@PathParam("id") IntParam idParam, Time time) {
-        time.setId(idParam.get());
+    public Response update(@PathParam("id") IntParam id, Time time) {
+        time.setId(id.get());
         if (dao.atualizar(time)) {
             return Response.ok().build();
         }
         
-        throw new WebApplicationException("Time com id=" + idParam.get()
+        throw new WebApplicationException("Time com id=" + id.get()
                                           + " não encontrado!", 404);
     }
     
     @DELETE
     @Path("{id}")
-    public Response delete(@PathParam("id") IntParam idParam) {
-        int id = idParam.get();
+    public Response delete(@PathParam("id") IntParam id) {
         
-        if ( dao.apagar(id)) {
+        if ( dao.apagar(id.get())) {
             return Response.ok().build();
         }
         

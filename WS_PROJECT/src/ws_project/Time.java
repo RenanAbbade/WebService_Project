@@ -12,7 +12,7 @@ package ws_project;
 
 import java.text.SimpleDateFormat;
 
-/** Renan
+/** Renan Henrique
  *TIME (id, nome, ano de fundação, cidade, estado)
 Renan
  * @author Dell
@@ -35,8 +35,6 @@ public class Time {
         this.nome = nome;
     }
     
-    SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
-
     public int getId() {
         return id;
     }
