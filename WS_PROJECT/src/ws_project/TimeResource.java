@@ -9,11 +9,19 @@ package ws_project;
  *
  * @author Renan
  */
-import javax.ws.rs.*;
-import javax.ws.rs.core.*;
-import io.dropwizard.jersey.*;
-import io.dropwizard.jersey.params.*;
-import java.util.*;
+import io.dropwizard.jersey.params.IntParam;
+import io.dropwizard.jersey.params.LongParam;
+import java.util.List;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 @Path("/times")
 @Produces(MediaType.APPLICATION_JSON)

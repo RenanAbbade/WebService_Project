@@ -12,7 +12,7 @@ package ws_project;
 
 import java.text.SimpleDateFormat;
 
-/** Renan Henrique
+/** Renan Henriquegit 
  *TIME (id, nome, ano de fundação, cidade, estado)
 Renan
  * @author Dell
