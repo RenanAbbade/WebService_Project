@@ -18,17 +18,7 @@ public class WS_PROJECT {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        timeDAO dao = new  timeDAO();
-        
-        List<Time> times = dao.lerTodos();
-        System.out.println(times.size());
-        
-        times.get(0).setNomeTime("São Paulo");
-        times.get(0).setEstado("São Paulo");
-        times.get(0).setCidade("SP");
-     
-        
-        dao.atualizar(times.get(0));
+       
     }
     
 }
