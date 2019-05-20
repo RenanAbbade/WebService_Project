@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Professores (create)</title>
+		<title>Times (create)</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="assets/css/estilos.css">
 	</head>
 	<body>
 		<p><a href="/site">&lt; Voltar para página inicial</a></p>
-		<h1>Novo professor</h1>
+		<h1>Novo time</h1>
 		<table>
 			<tr>
-				<td>Nome:</td>
+				<td>Time:</td>
 				<td><input type="text" id="txtNome"></td>
 			</tr>
 			<tr>
@@ -31,8 +31,8 @@
 			paragrafoMensagem.innerHTML = 'Professor criado com id ' + professorCadastrado.id;
 			}
 			async function criarProfessor() {
-			const URL = `/api/professores`;
-			const dadosProfessor = {
+			const URL = '/api/times';
+			const dadosTimes = {
 			'nome': textoNome.value,
 			'matricula': textoMatricula.value
 		};
