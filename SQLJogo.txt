@@ -1,0 +1,31 @@
+
+CREATE TABLE jogo_fut(
+
+    id BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY(START WITH 1, INCREMENT BY 1),
+
+    timeA VARCHAR(255) NOT NULL ,
+
+    timeB VARCHAR(100) NOT NULL,
+
+    GolsTimeA BIGINT,
+
+    GolsTimeB BIGINT,
+
+    PRIMARY KEY(id)
+
+);
+
+
+
+
+
+INSERT INTO jogo_fut ( timeA, timeB, GolsTimeA, GolsTimeB) values ('São Paulo','Corinthians',3,4);
+
+INSERT INTO jogo_fut ( timeA, timeB, GolsTimeA, GolsTimeB) values ('São Paulo','Palmeiras',3,4);
+
+INSERT INTO jogo_fut ( timeA, timeB, GolsTimeA, GolsTimeB) values ('São Paulo','Bota',3,5);
+
+
+
+
+SELECT * FROM jogo_fut;
