@@ -32,11 +32,11 @@ public class JogoDAO {
     public JogoDAO(){ //Constructor
     try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
-            this.conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Projeto");
+            this.conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Project","app","app");
             
-            this.stmC = this.conn.prepareStatement("INSERT INTO jogo_fut(timeA, timeB, golsA, golsB) VALUES(?,?,?,?)",Statement.RETURN_GENERATED_KEYS);
+            this.stmC = this.conn.prepareStatement("INSERT INTO jogo_fut(TIMEA, TIMEB, GOLSTIMEA, GOLSTIMEB) VALUES(?,?,?,?)",Statement.RETURN_GENERATED_KEYS);
             this.stmR = this.conn.prepareStatement("SELECT * FROM jogo_fut");
-            this.stmU = this.conn.prepareStatement("UPDATE jogo_fut SET timeA=?, timeB=?, golsA=?, golsB=?, WHERE id=?");
+            this.stmU = this.conn.prepareStatement("UPDATE jogo_fut SET timeA=?, timeB=?, golsTIMEA=?, golsTIMEB=? WHERE id=?");
             this.stmD = this.conn.prepareStatement("DELETE FROM jogo_fut WHERE id=?");        
             
             
@@ -103,7 +103,56 @@ public class JogoDAO {
         }
         return null;
     }
- 
+    @SuppressWarnings("CallToPrintStackTrace")
+    public List<Time> lerTodos(){//R
+        try{
+            ResultSet rs = this.stmR.executeQuery();
+            List<Time> times = new ArrayList<>();
+            
+            while(rs.next()){
+                Time aux = new Time();
+                aux.setId(rs.getInt("id"));
+                aux.setNomeTime(rs.getString("nome"));
+                aux.setCidade(rs.getString("cidade"));
+                aux.setEstado("estado");
+                times.add(aux);
+            }
+            return times;
+            
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return null; //Se o banco tiver vazio.
+    }
+    
+    @SuppressWarnings("CallToPrintStackTrace")
+    public boolean update(Jogo jogo){//U
+        try{
+            this.stmU.setString(1, jogo.getTimeA());
+            this.stmU.setString(2, jogo.getTimeB());
+            this.stmU.setInt(3, jogo.getGolsTimeA());
+            this.stmU.setInt(4, jogo.getGolsTimeB());
+            
+            return this.stmU.executeUpdate() > 0 ;
+   
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
+     @SuppressWarnings("CallToPrintStackTrace")
+     public boolean delete(int id){//D
+         try{
+             this.stmD.setInt(1,id);
+             return this.stmD.executeUpdate() > 0;
+             
+         }catch(SQLException e){
+             e.printStackTrace();
+         }
+         return false;
+         
+     }
 
  
 }
