@@ -12,7 +12,7 @@
 
 
 
-        <title>FIFA QUIZ</title>
+        <title>TIMES</title>
     
   </head>
     
@@ -74,7 +74,7 @@
                       <td class="under" style="color: black; font-size: 20px">Estado :</td>
                       <td><input type="text" id="txtMatricula"></td>
                     </tr>
-                    <tr><td></td><td> <br><button input type="button" onclick="criarProfessor()" value="Criar"class="botao"  >Criar!</button></a></td></tr>
+                    <tr><td></td><td> <br><button input type="button" onclick="criarTime()" value="Criar"class="botao"  >Criar!</button></a></td></tr>
                   </table>  
                   <p style="font-weight:bold" id="mensagem"></p>
               <script>
@@ -86,15 +86,16 @@
                     textoMatricula.value = '';
                     paragrafoMensagem.innerHTML = 'Professor criado com id ' + professorCadastrado.id;
                     }
-                    async function criarProfessor() {
+                    async function criarTime() {
                     const URL = '/api/times';
                     const dadosTimes = {
                     'nome': textoNome.value,
-                    'matricula': textoMatricula.value
+                    'cidade': textoMatricula.value
+                    'estado':textoEstado.value
                   };
                   const postRequest = {
                     method:'POST',
-                    body: JSON.stringify(dadosProfessor),
+                    body: JSON.stringify(dadosTime),
                     headers: { 'Content-type': 'application/json;charset=UTF-8' }
                     };
                     try {

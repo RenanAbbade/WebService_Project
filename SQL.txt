@@ -1,0 +1,16 @@
+CREATE TABLE time_fut(
+    id BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY(START WITH 1, INCREMENT BY 1),
+    nome VARCHAR(255) NOT NULL ,
+    cidade VARCHAR(100) NOT NULL,
+    estado VARCHAR(10) NOT NULL,
+    PRIMARY KEY(id)
+);
+
+
+INSERT INTO time_fut ( nome, cidade, estado) values ('São Paulo','São Paulo','SP');
+
+INSERT INTO time_fut ( nome, cidade, estado) values ('Corinthians','São Paulo','SP');
+
+INSERT INTO time_fut (nome, cidade, estado) values ('Manchester United', 'Manchester', 'UK');
+
+SELECT * FROM time_fut;
