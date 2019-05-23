@@ -5,9 +5,10 @@
  */
 package ws_project;
 
+
 /**
  *
- * @author Renan
+ * @author GabrielAugustoSouzaS
  */
 import io.dropwizard.jersey.params.IntParam;
 import io.dropwizard.jersey.params.LongParam;
@@ -23,35 +24,35 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("/times")
+@Path("/jogo")
 @Produces(MediaType.APPLICATION_JSON)
-public class TimeResource {
+public class JogoResource {
     
-    private timeDAO dao;
+    private JogoDAO dao;
     
-    public TimeResource(timeDAO dao){
+    public JogoResource(JogoDAO dao){
         this.dao = dao;
     }
     
     @POST
-    public Time create(Time time){
-        return dao.create(time);      
+    public Jogo create(Jogo jogo){
+        return dao.create(jogo);      
     }
     
     @GET
-    public List<Time> read(){
-        return dao.lerTodos();
+    public List<Jogo> read(){
+        return dao.read();
     }
     
     @PUT
     @Path("{id}")
-    public Response update(@PathParam("id") IntParam id, Time time) {
-        time.setId(id.get());
-        if (dao.atualizar(time)) {
+    public Response update(@PathParam("id") IntParam id, Jogo jogo) {
+        jogo.setId(id.get());
+        if (dao.update(jogo)) {
             return Response.ok().build();
         }
         
-        throw new WebApplicationException("Time com id=" + id.get()
+        throw new WebApplicationException("Jogo com id=" + id.get()
                                           + " não encontrado!", 404);
     }
     
@@ -59,18 +60,13 @@ public class TimeResource {
     @Path("{id}")
     public Response delete(@PathParam("id") IntParam id) {
         
-        if ( dao.apagar(id.get())) {
+        if ( dao.delete(id.get())) {
             return Response.ok().build();
         }
         
-        throw new WebApplicationException("Professor com id=" + id 
+        throw new WebApplicationException("Jogo com id=" + id 
                                           + " não encontrado!", 404);
     }
     
-   
-    
-
-
 }
     
-  

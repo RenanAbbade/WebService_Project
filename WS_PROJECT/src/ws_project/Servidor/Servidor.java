@@ -16,13 +16,15 @@ import io.dropwizard.Configuration;
 import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import ws_project.JogoDAO;
+import ws_project.JogoResource;
 
 /**
  *
  * @author Joaquim Pessôa Filho
  */
 public class Servidor extends Application<Configuration> {
-      @Override
+    @Override
     public void initialize(final Bootstrap<Configuration> bootstrap) {
         //Mapeia a pasta "src/html" para a url "http://localhost:8080/" e
         // por padrao abre o arquivo index.html quando um recurso especifico
@@ -30,8 +32,7 @@ public class Servidor extends Application<Configuration> {
         bootstrap.addBundle(new AssetsBundle("/html", "/", "index.html"));
     }
     public static void main(String args[]) throws Exception {
-        Servidor s = new Servidor();
-        s.run(new String[]{ "server" });
+        new Servidor().run(new String[] { "server" });;
     }
 //    
 //    @Override
@@ -43,6 +44,9 @@ public class Servidor extends Application<Configuration> {
     public void run(Configuration t, Environment e) throws Exception {
         timeDAO dao = new timeDAO();
         e.jersey().register(new TimeResource(dao));
+        
+        JogoDAO daoJ = new JogoDAO();
+        e.jersey().register(new JogoResource(daoJ));
         
          // Mapeia todos os WebServices para a rota base 
         // "http://localhost:8080/api/"

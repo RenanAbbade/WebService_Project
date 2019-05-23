@@ -332,7 +332,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Apagar Professor</h5>
+          <h5 class="modal-title">Apagar Time</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="resetDeleteModal()">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -361,9 +361,9 @@
 
         <!-- botoes com ações gerais -->
         <p class="float-right">
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">Novo
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModalJogo">Novo
             Jogo</button>
-          <button type="button" class="btn btn-info" onClick="readTimes()">Recarregar</button>
+          <button type="button" class="btn btn-info" onClick="readJogos()">Recarregar</button>
         </p>
 
         <!-- Tabela com a lista de professores -->
@@ -371,19 +371,20 @@
           <thead class="table-dark text-center" style="float: left;">
             <tr class="align-middle">
               <th scope="col">ID</th>
-              <th scope="col">Nome</th>
-              <th scope="col" style="padding-left: 80px">Matrícula</th>
-              <th scope="col" style="padding-left: 80px">Ações</th>
+              <th scope="col">Time A</th>
+              <th scope="col">Time B</th>
+              <th scope="col">Gols A</th>
+              <th scope="col">Gols B</th>
             </tr>
           </thead>
-          <tbody id="professores"></tbody>
+          <tbody id="jogos"></tbody>
         </table>
       </div> <!-- end col -->
 
       
 
   <!-- Modal CREATE -->
-  <div class="modal fade" id="createModal" tabindex="-1" role="dialog">
+  <div class="modal fade" id="createModalJogo" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -395,64 +396,81 @@
         <div class="modal-body">
           <form>
             <div class="form-group">
-              <label for="idInput">Identificador</label>
-              <input type="number" class="form-control" id="idInput" aria-describedby="idHelp" placeholder="--"
+              <label for="idInputJ">Identificador</label>
+              <input type="number" class="form-control" id="idInputJ" aria-describedby="idHelp" placeholder="--"
                 disabled>
               <small id="idHelp" class="form-text text-muted">Gerado automaticamente pela aplicação</small>
             </div>
             <div class="form-group">
-              <label for="nameInput">Nome</label>
-              <input type="text" class="form-control" id="nameInput" aria-describedby="nameHelp"
-                placeholder="nome do professor">
-              <small id="nameHelp" class="form-text text-muted">Informe o nome completo</small>
+              <label for="timeA">Time A</label>
+              <input type="text" class="form-control" id="timeA" aria-describedby="nameHelp"  
+                placeholder="nome do time A">
+              
             </div>
             <div class="form-group">
-              <label for="registryInput">Password</label>
-              <input type="number" class="form-control" id="registryInput" placeholder="12345">
+              <label for="timeB">Time B</label>
+              <input type="text" class="form-control" id="timeB" placeholder="nome do time B">
+            </div>
+            <div class="form-group">
+              <label for="golsTimeA">Gols A</label>
+              <input type="number" class="form-control" id="golsTimeA" placeholder="1">
+            </div>
+            <div class="form-group">
+              <label for="golsTimeB">Gols B</label>
+              <input type="number" class="form-control" id="golsTimeB" placeholder="5">
             </div>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="createJogos()">Criar</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal"
-            onclick="resetCreateForm()">Cancelar</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="createJogos()">Criar Jogo</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="resetCreateFormJogos()">Cancelar</button>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Modal UPDATE -->
-  <div class="modal fade" id="updateModal" tabindex="-1" role="dialog">
+  <div class="modal fade" id="updateModalJogo" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Atualizar dados do Jogo</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="resetUpdateForm()">
-            <span aria-hidden="true">&times;</span>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="resetUpdateFormJogos()">
+            <span aria-hidden="true">&jogos;</span>
           </button>
         </div>
         <div class="modal-body">
           <form>
             <div class="form-group">
-              <label for="idUpdateInput">Identificador</label>
-              <input type="number" class="form-control" id="idUpdateInput" aria-describedby="idHelp" placeholder="--"
-                disabled>
+              <label for="idUpdateJ">ID</label>
+              <input type="number" class="form-control" id="idUpdateJ" aria-describedby="nameHelp"  
+                placeholder="--"
+                disabled >
+              
+            </div>
+           <div class="form-group">
+              <label for="timeAupdate">Time A</label>
+              <input type="text" class="form-control" id="timeAupdate" aria-describedby="nameHelp"  
+                placeholder="nome do time A">
+              
             </div>
             <div class="form-group">
-              <label for="nameUpdateInput">Nome</label>
-              <input type="text" class="form-control" id="nameUpdateInput" placeholder="nome do professor">
+              <label for="timeBupdate">Time B</label>
+              <input type="text" class="form-control" id="timeBupdate" placeholder="nome do time B">
             </div>
             <div class="form-group">
-              <label for="registryUpdateInput">Password</label>
-              <input type="number" class="form-control" id="registryUpdateInput" placeholder="12345">
+              <label for="golsAupdate">Gols A</label>
+              <input type="number" class="form-control" id="golsAupdate" placeholder="1">
             </div>
-          </form>
-        </div>
+            <div class="form-group">
+              <label for="golsBupdate">Gols B</label>
+              <input type="number" class="form-control" id="golsBupdate" placeholder="5">
+            </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-dismiss="modal"
             onclick="updateJogo()">Atualizar</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal"
-            onclick="resetUpdateForm()">Cancelar</button>
+            onclick="resetUpdateFormJogos()">Cancelar</button>
         </div>
       </div>
     </div>
@@ -465,16 +483,16 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Apagar Jogo</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="resetDeleteModal()">
-            <span aria-hidden="true">&times;</span>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="resetDeleteModalJogo()">
+            <span aria-hidden="true">&jogos;</span>
           </button>
         </div>
         <div class="modal-body">
-          <p>Apagar dados do jogo: <span class="font-weight-bold" id="timesSelected"></span></p>
+          <p>Apagar dados do jogo: <span class="font-weight-bold" id="jogosSelected"></span></p>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="deleteJogo()">Apagar</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal"
-              onclick="resetDeleteModal()">Cancelar</button>
+              onclick="resetDeleteModalJogo()">Cancelar</button>
           </div>
         </div>
       </div>
@@ -514,10 +532,10 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
      <!-- Meus scripts -->
-    
+    <script src="assets/js/jogos.js"></script>
     <script src="assets/js/popup.js"></script>
     <script src="assets/js/times.js"></script>
-    <script src="assets/js/jogos.js"></script>
+    
 
     
 </body>
