@@ -7,10 +7,18 @@ CREATE TABLE time_fut(
 );
 
 
-INSERT INTO time_fut ( nome, cidade, estado) values ('São Paulo','São Paulo','SP');
+INSERT INTO time_fut ( nome, cidade, estado) values ('SÃ£o Paulo','SÃ£o Paulo','SP');
 
-INSERT INTO time_fut ( nome, cidade, estado) values ('Corinthians','São Paulo','SP');
+INSERT INTO time_fut ( nome, cidade, estado) values ('Corinthians','SÃ£o Paulo','SP');
 
 INSERT INTO time_fut (nome, cidade, estado) values ('Manchester United', 'Manchester', 'UK');
 
 SELECT * FROM time_fut;
+
+
+    public static void main(String[] args) {
+          Jogo jogw = new Jogo(3,"J","X",3,4);
+          JogoDAO x = new JogoDAO();
+          x.update(jogw);       
+    }
+    
