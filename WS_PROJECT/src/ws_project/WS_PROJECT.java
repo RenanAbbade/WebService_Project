@@ -18,7 +18,10 @@ public class WS_PROJECT {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-       
+//       Time time = new Time(10, "ss","ss","s");
+//       timeDAO novo = new timeDAO();
+//       novo.create(time);
+//       novo.atualizar(time);
     }
     
 }

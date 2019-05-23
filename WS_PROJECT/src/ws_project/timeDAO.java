@@ -64,7 +64,7 @@ public class timeDAO {
     @SuppressWarnings("CallToPrintStackTrace")
     public Time create(Time novoTime) {//C
         try {
-            this.stmC.setString(1, novoTime.getNomeTime());
+            this.stmC.setString(1, novoTime.getNome());
             this.stmC.setString(2, novoTime.getCidade());
             this.stmC.setString(3, novoTime.getEstado());
             this.stmC.executeUpdate();
@@ -92,7 +92,7 @@ public class timeDAO {
             while(rs.next()){
                 Time aux = new Time();
                 aux.setId(rs.getInt("id"));
-                aux.setNomeTime(rs.getString("nome"));
+                aux.setNome(rs.getString("nome"));
                 aux.setCidade(rs.getString("cidade"));
                 aux.setEstado(rs.getString("estado"));
                 times.add(aux);
@@ -108,7 +108,7 @@ public class timeDAO {
     @SuppressWarnings("CallToPrintStackTrace")
     public boolean atualizar(Time time){//U
         try{
-            this.stmU.setString(1, time.getNomeTime());
+            this.stmU.setString(1, time.getNome());
             this.stmU.setString(2, time.getCidade());
             this.stmU.setString(3, time.getEstado());
             this.stmU.setInt(4, time.getId());

@@ -22,7 +22,13 @@ import io.dropwizard.setup.Environment;
  * @author Joaquim Pessôa Filho
  */
 public class Servidor extends Application<Configuration> {
-    
+      @Override
+    public void initialize(final Bootstrap<Configuration> bootstrap) {
+        //Mapeia a pasta "src/html" para a url "http://localhost:8080/" e
+        // por padrao abre o arquivo index.html quando um recurso especifico
+        // nao for informado
+        bootstrap.addBundle(new AssetsBundle("/html", "/", "index.html"));
+    }
     public static void main(String args[]) throws Exception {
         Servidor s = new Servidor();
         s.run(new String[]{ "server" });

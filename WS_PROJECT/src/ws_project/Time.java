@@ -30,9 +30,10 @@ public class Time {
     
     public Time(int id, String nome, String cidade, String estado){
         this.id = id;
+        this.nome = nome;
         this.cidade = cidade;
         this.estado = estado;
-        this.nome = nome;
+        
     }
     
     public int getId() {
@@ -43,12 +44,12 @@ public class Time {
         this.id = id;
     }
 
-    public String getNomeTime() {
+    public String getNome() {
         return nome;
     }
 
-    public void setNomeTime(String nomeTime) {
-        this.nome = nomeTime;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getCidade() {

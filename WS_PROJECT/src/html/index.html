@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html >
 <head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,13 +35,11 @@
 
           <ul class="nav navbar-nav navbar-right">
             
-             <li class="under"> <a href="quiz.html">
+             <li class="under"> <a href="#timeAnc">
                 Time </a></li>
-            <li class="under"> <a href="#maps">
+            <li class="under"> <a href="#jogo">
                 Jogo </a></li>
 
-            <li class="under"> <a href="#ass ">
-               Campeonato</a></li>
 
           </ul>
 
@@ -73,7 +71,7 @@
 
                         <div class="carousel-caption">
 
-                           <a href="quiz.html"><button class="botao">Crie seu time!</button></a>
+                           <a href="create.html"><button class="botao">Crie seu time!</button></a>
                             <p class="logo" style="font-size:20px;text-shadow: 2px 2px #ff0000;"><i> Clique no botão acima, e crie seu time!</i></p>
                             <p></p>
                           </div>
@@ -99,7 +97,7 @@
                     
                       <div class="container">
                         <div class="carousel-caption">
-                            <a href="create.html"><button class="botao"  >Crie seu time!</button></a>
+                            <a href="create.html"><button class="botao" >Crie seu time!</button></a>
                             <p class="logo" style="font-size:20px;text-shadow: 2px 2px #ff0000;"><i> Clique no botão acima, e venha criar seu time!</i></p>
                           <h1></h1>
                           <p></p>
@@ -113,7 +111,7 @@
                 
                       <div class="container">
                         <div class="carousel-caption">
-                           <a href="quiz.html"><button class="botao"  >Crie seu jogo!</button></a>
+                           <a href="create.html"><button class="botao"  >Crie seu jogo!</button></a>
                             <p class="logo" style="font-size:20px;text-shadow: 2px 2px #ff0000;"><i> Clique no botão acima, e venha encarar o nosso quiz!</i></p>
                           <h1></h1>
                           <p></p>
@@ -127,7 +125,7 @@
                     
                       <div class="container">
                         <div class="carousel-caption">
-                           <a href="quiz.html"><button class="botao"  >Crie seu time!</button></a>
+                           <a href="create.html"><button class="botao"  >Crie seu time!</button></a>
                             <p class="logo" style="font-size:20px;text-shadow: 2px 2px #ff0000;"><i> Clique no botão acima, e venha encarar o nosso quiz!</i></p>
                           <h1></h1>
                           <p></p>
@@ -187,94 +185,339 @@
 
 
      <!-- Wrap the rest of the page in another container to center all the content. -->
-    
-     <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 100%;">
+
     
       <!-- Three columns of text below the carousel -->
    
 
 	
+<br>
+<!--   <img class="img-circle" src="assets/img/fifa19.jpg" style="float: center; height: 100px; width: 200px"> -->
 
- 
-
-  <section class="container" id="maps">
-    
+ <!--  <section class="container" style="float: center; width: 50%; background-color: white;  " 
+  class="col-md-3 col-lg-6 col-xl-3 mx-auto mb-4">
+     -->
       <!--Crie o formulário aqui -->
+     
+                 
+               <!--    <table>
+                    <tr>
+                      <td class="under" style="color: black; font-size: 20px">Nome :</td>
+                      <td><input type="text" id="txtNome"></td>
+                    </tr>
+                    <tr><br>
+                      <td class="under" style="color: black; font-size: 20px">Cidade :</td>
+                      <td><input type="text" id="txtMatricula"></td>
+                    </tr>
+                     <tr><br>
+                      <td class="under" style="color: black; font-size: 20px">Estado :</td>
+                      <td><input type="text" id="txtMatricula"></td>
+                    </tr>
+                    <tr><td></td><td> <br><button input type="button" onclick="criarTime()" value="Criar"class="botao"  >Criar!</button></a></td></tr>
+                  </table>   -->
+
+<section class="container"  style="float: left; width: 45%; background-color: white; padding: 1%; margin-left: 1%; " >
+  <div class="container"  >
+    <div class="row">
+      <div class="col-sm-6">
+
+        <!-- botoes com ações gerais -->
+        <p class="float-right">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">Novo
+            Time</button>
+          <button type="button"  class="btn btn-info" onClick="readTimes()">Recarregar</button>
+        </p>
+
+        <!-- Tabela com a lista de professores -->
+        <table class="table table-striped">
+          <thead class="table-dark text-center">
+            <tr class="align-middle" >
+              <th scope="col" >ID</th>
+              <th scope="col" >Nome</th>
+              <th scope="col" >Cidade</th>
+              <th scope="col">Estado</th>
+            </tr>
+          </thead>
+          <tbody id="Times"></tbody>
+        </table>
+      </div> <!-- end col -->
+
+      
+
+  <!-- Modal CREATE -->
+  <div class="modal fade" id="createModal" tabindex="-1" role="dialog" id="timeAnc">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Times</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="resetCreateForm()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="idInput">Identificador</label>
+              <input type="number" class="form-control" id="idInput" aria-describedby="idHelp" placeholder="--"
+                disabled>
+              <small id="idHelp" class="form-text text-muted">Gerado automaticamente pela aplicação</small>
+            </div>
+            <div class="form-group">
+              <label for="nomeInput">Nome</label>
+              <input type="text" class="form-control" id="nomeInput" placeholder="São Paulo FC">
+            </div>
+            <div class="form-group">
+              <label for="cidadeInput">Cidade</label>
+              <input type="text" class="form-control" id="cidadeInput" placeholder="São Paulo">
+            </div>
+            <div class="form-group">
+              <label for="estadoInput">Estado</label>
+              <input type="text" class="form-control" id="estadoInput"  placeholder="SP">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="createTimes()">Criar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"
+            onclick="resetCreateForm()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal UPDATE -->
+  <div class="modal fade" id="updateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Atualizar dados do Time</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="resetUpdateForm()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="idUpdateInput">Identificador</label>
+              <input type="number" class="form-control" id="idUpdateInput" aria-describedby="idHelp" placeholder="--"
+                disabled>
+            </div>
+            <div class="form-group">
+              <label for="nomeUpdateInput">Nome</label>
+              <input type="text" class="form-control" id="nomeUpdateInput" placeholder="nome do professor">
+            </div>
+            <div class="form-group">
+              <label for="estadoUpdateInput">Estado</label>
+              <input type="text" class="form-control" id="estadoUpdateInput" placeholder="12345">
+            </div>
+            <div class="form-group">
+              <label for="cidadeUpdateInput">Cidade</label>
+              <input type="text" class="form-control" id="cidadeUpdateInput" placeholder="12345">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal"
+            onclick="updateTimes()">Atualizar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"
+            onclick="resetUpdateForm()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal DELETE -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Apagar Professor</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="resetDeleteModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Apagar dados do time: <span class="font-weight-bold" id="timesSelected"></span></p>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="deleteTimes()">Apagar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+              onclick="resetDeleteModal()">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   
   </section>
 
+  <section class="container"  style="float: right; width: 45%; background-color: white; padding: 1%; margin-right:  1%; ">
+    
+    
+    <div class="row">
+      <div class="col-sm-8">
+
+        <!-- botoes com ações gerais -->
+        <p class="float-right">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">Novo
+            Jogo</button>
+          <button type="button" class="btn btn-info" onClick="readTimes()">Recarregar</button>
+        </p>
+
+        <!-- Tabela com a lista de professores -->
+        <table class="table table-striped">
+          <thead class="table-dark text-center" style="float: left;">
+            <tr class="align-middle">
+              <th scope="col">ID</th>
+              <th scope="col">Nome</th>
+              <th scope="col" style="padding-left: 80px">Matrícula</th>
+              <th scope="col" style="padding-left: 80px">Ações</th>
+            </tr>
+          </thead>
+          <tbody id="professores"></tbody>
+        </table>
+      </div> <!-- end col -->
+
+      
+
+  <!-- Modal CREATE -->
+  <div class="modal fade" id="createModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Jogos</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="resetCreateForm()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="idInput">Identificador</label>
+              <input type="number" class="form-control" id="idInput" aria-describedby="idHelp" placeholder="--"
+                disabled>
+              <small id="idHelp" class="form-text text-muted">Gerado automaticamente pela aplicação</small>
+            </div>
+            <div class="form-group">
+              <label for="nameInput">Nome</label>
+              <input type="text" class="form-control" id="nameInput" aria-describedby="nameHelp"
+                placeholder="nome do professor">
+              <small id="nameHelp" class="form-text text-muted">Informe o nome completo</small>
+            </div>
+            <div class="form-group">
+              <label for="registryInput">Password</label>
+              <input type="number" class="form-control" id="registryInput" placeholder="12345">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="createJogos()">Criar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"
+            onclick="resetCreateForm()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal UPDATE -->
+  <div class="modal fade" id="updateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Atualizar dados do Jogo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="resetUpdateForm()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="idUpdateInput">Identificador</label>
+              <input type="number" class="form-control" id="idUpdateInput" aria-describedby="idHelp" placeholder="--"
+                disabled>
+            </div>
+            <div class="form-group">
+              <label for="nameUpdateInput">Nome</label>
+              <input type="text" class="form-control" id="nameUpdateInput" placeholder="nome do professor">
+            </div>
+            <div class="form-group">
+              <label for="registryUpdateInput">Password</label>
+              <input type="number" class="form-control" id="registryUpdateInput" placeholder="12345">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal"
+            onclick="updateJogo()">Atualizar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"
+            onclick="resetUpdateForm()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal DELETE -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Apagar Jogo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="resetDeleteModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Apagar dados do jogo: <span class="font-weight-bold" id="timesSelected"></span></p>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="deleteJogo()">Apagar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+              onclick="resetDeleteModal()">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+  </section>
+
+  <div class="content" style="position: relative;">
+     <!-- Tablea de LOG -->
+      <div class="col-sm-4" style="float: bottom;  margin: 1px; width: 20%">
+        <p class="h3 text-center">Log</p>
+        <table class="table table-striped small">
+          <thead >
+            <tr>
+              <th scope="col">DATA</th>
+              <th scope="col">LOG</th>
+            </tr>
+          </thead>
+          <tbody id="logger"></tbody>
+        </table>
+      </div>
+    </div> <!-- end-row -->
+
+<br>
 	 <!-- Footer -->
-<footer class="page-footer font-small unique-color-dark">
+   <footer style="position: bottom;">
+    
+   </footer>
 
-    <div style="background-color: #6351ce;">
-      <div class="container">
-
-        <!-- Grid row-->
-        <div class="row py-4 d-flex align-items-center">
-
-          <!-- Grid column -->
-          <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-            <h6 class="mb-0">Confira as redes sociais do FIFA na EA SPORTS!</h6>
-          </div>
-          <!-- Grid column -->
-
-          <!-- Grid column -->
-          <div class="col-md-6 col-lg-7 text-center text-md-right" style="height: 30px">
-
-      <div class="panel-group col-sm-6 col-md-4 col-lg-2" class="btn-group" role="group" aria-label="Button group with nested dropdown" style="float: right;">
-      <a href="https://www.easports.com/br/fifa"><button type="button" class="btn btn-primary"><img style="height: 20px;width: 20px" src="assets/img/SITE.jpg">EA SPORTS</button> </a>
-      <a href="https://pt-br.facebook.com/easportsfifa/"><button type="button" class="btn btn-primary"><img style="height: 20px;width: 20px" src="assets/img/facebook.png"></button> </a>
-      
-      
-
-          </div>
-          <!-- Grid column -->
-
-        </div>
-        <!-- Grid row-->
-
-      </div>
-    </div>
-
-    <!-- Footer Links -->
-    <div class="container text-center text-md-left mt-5">
-
-      <!-- Grid row -->
-      <div class="row mt-3">
-
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-
-          <!-- Content -->
-        
-
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        
-        <!-- Grid column -->
-
-      </div>
-      <!-- Grid row -->
-
-    </div>
-    <!-- Footer Links -->
-
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">FIFA© Copyright: EA SPORTS©
-      <p style="float: right;font-size: 10px">THE FIFA QUIZ by Renan Abbade & Rafael Sanzio ©</p>
-    </div>
-    <!-- Copyright -->
-    </div>
-  </footer>
   <!-- Footer -->
   <!-- Footer -->
    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
+     <!-- Meus scripts -->
+    
     <script src="assets/js/popup.js"></script>
+    <script src="assets/js/times.js"></script>
+    <script src="assets/js/jogos.js"></script>
 
     
 </body>
