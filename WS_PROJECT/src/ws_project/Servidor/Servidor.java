@@ -27,11 +27,11 @@ public class Servidor extends Application<Configuration> {
         Servidor s = new Servidor();
         s.run(new String[]{ "server" });
     }
-    
-    @Override
-    public void initialize(final Bootstrap<Configuration> bootstrap) {
-        bootstrap.addBundle(new AssetsBundle("/html", "/index.html"));
-}
+//    
+//    @Override
+//    public void initialize(final Bootstrap<Configuration> bootstrap) {
+//        bootstrap.addBundle(new AssetsBundle("/html", "/index.html"));
+//}
 
     @Override
     public void run(Configuration t, Environment e) throws Exception {

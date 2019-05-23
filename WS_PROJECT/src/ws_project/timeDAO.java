@@ -94,7 +94,7 @@ public class timeDAO {
                 aux.setId(rs.getInt("id"));
                 aux.setNomeTime(rs.getString("nome"));
                 aux.setCidade(rs.getString("cidade"));
-                aux.setEstado("estado");
+                aux.setEstado(rs.getString("estado"));
                 times.add(aux);
             }
             return times;
