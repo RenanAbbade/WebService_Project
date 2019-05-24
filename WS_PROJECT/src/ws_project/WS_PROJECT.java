@@ -18,10 +18,10 @@ public class WS_PROJECT {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-          Jogo jogw = new Jogo(3,"J","X",3,4);
-          JogoDAO x = new JogoDAO();
-          x.create(jogw);   
-
+//       Time time = new Time(10, "ss","ss","s");
+//       timeDAO novo = new timeDAO();
+//       novo.create(time);
+//       novo.atualizar(time);
     }
     
 }

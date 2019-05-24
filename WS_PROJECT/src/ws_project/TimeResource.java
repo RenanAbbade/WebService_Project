@@ -67,8 +67,6 @@ public class TimeResource {
                                           + " não encontrado!", 404);
     }
     
-   
-    
 
 
 }

@@ -3,37 +3,37 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ws_project;
+
 
 public class Jogo {
     private int id;
     private String timeA;
     private String timeB;
-    private int GolsTimeA;
-    private int GolsTimeB;
+    private  String golsTimeA;
+    private  String golsTimeB;
     
     
     public Jogo(){
         //Constructor
     }
     
-    public Jogo(int id, String timeA, String timeB,int GolsTimeA, int GolsTimeB){
+    public Jogo(int id, String timeA, String timeB,  String golsTimeA,  String golsTimeB){
         this.id = id;
         this.timeA = timeA;
         this.timeB = timeB;
-        this.GolsTimeA = GolsTimeA;
-        this.GolsTimeB = GolsTimeB;
+        this.golsTimeA = golsTimeA;
+        this.golsTimeB = golsTimeB;
     }
 
-    public int getGolsTimeA() {
-        return GolsTimeA;
+    public String getgolsTimeA() {
+        return golsTimeA;
     }
 
-    public int getGolsTimeB() {
-        return GolsTimeB;
+    public String getgolsTimeB() {
+        return golsTimeB;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -45,12 +45,12 @@ public class Jogo {
         return timeB;
     }
 
-    public void setGolsTimeA(int GolsTimeA) {
-        this.GolsTimeA = GolsTimeA;
+    public void setgolsTimeA(String golsTimeA) {
+        this.golsTimeA = golsTimeA;
     }
 
-    public void setGolsTimeB(int GolsTimeB) {
-        this.GolsTimeB = GolsTimeB;
+    public void setgolsTimeB(String golsTimeB) {
+        this.golsTimeB = golsTimeB;
     }
 
     public void setId(int id) {

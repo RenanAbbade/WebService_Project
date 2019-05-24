@@ -4,6 +4,11 @@
  * and open the template in the editor.
  */
 package ws_project;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 
 import java.sql.Connection;
@@ -35,9 +40,9 @@ public class JogoDAO {
             this.conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Project", "app", "app");
             System.out.println("Conexão estabelecida");
             
-            this.stmC = this.conn.prepareStatement("INSERT INTO jogo_fut(timeA, timeB, GolsTimeA, GolsTimeB) VALUES(?,?,?,?)",Statement.RETURN_GENERATED_KEYS);
+            this.stmC = this.conn.prepareStatement("INSERT INTO jogo_fut(timeA, timeB, golsTimeA, golsTimeB) VALUES(?,?,?,?)",Statement.RETURN_GENERATED_KEYS);
             this.stmR = this.conn.prepareStatement("SELECT * FROM jogo_fut");
-            this.stmU = this.conn.prepareStatement("UPDATE jogo_fut SET timeA=?, timeB=?, GolsTimeA=?, GolsTimeB=? WHERE id=?");
+            this.stmU = this.conn.prepareStatement("UPDATE jogo_fut SET timeA=?, timeB=?, golsTimeA=?, golsTimeB=? WHERE id=?");
             this.stmD = this.conn.prepareStatement("DELETE FROM jogo_fut WHERE id=?");        
             
             
@@ -65,8 +70,8 @@ public class JogoDAO {
         try {
             this.stmC.setString(1, novoJogo.getTimeA());
             this.stmC.setString(2, novoJogo.getTimeB());
-            this.stmC.setInt(3, novoJogo.getGolsTimeA());
-            this.stmC.setInt(4, novoJogo.getGolsTimeB());
+            this.stmC.setString(3, novoJogo.getgolsTimeA());
+            this.stmC.setString(4, novoJogo.getgolsTimeB());
             this.stmC.executeUpdate();
             
             ResultSet rs = this.stmC.getGeneratedKeys();
@@ -92,8 +97,8 @@ public class JogoDAO {
                 p.setId(rs.getInt("id"));
                 p.setTimeA(rs.getString("timeA"));
                 p.setTimeB(rs.getString("timeB"));
-                p.setGolsTimeA(rs.getInt("GolsTimeA"));
-                p.setGolsTimeB(rs.getInt("GolsTimeB"));
+                p.setgolsTimeA(rs.getString("golsTimeA"));
+                p.setgolsTimeB(rs.getString("golsTimeB"));
              
                 jogos.add(p);
             }
@@ -111,8 +116,8 @@ public class JogoDAO {
         try{
             this.stmU.setString(1, jogo.getTimeA());
             this.stmU.setString(2, jogo.getTimeB());
-            this.stmU.setInt(3, jogo.getGolsTimeA());
-            this.stmU.setInt(4, jogo.getGolsTimeB());
+            this.stmU.setString(3, jogo.getgolsTimeA());
+            this.stmU.setString(4, jogo.getgolsTimeB());
             
             return this.stmU.executeUpdate() > 0 ;
    

@@ -192,31 +192,9 @@
 
 	
 <br>
-<!--   <img class="img-circle" src="assets/img/fifa19.jpg" style="float: center; height: 100px; width: 200px"> -->
 
- <!--  <section class="container" style="float: center; width: 50%; background-color: white;  " 
-  class="col-md-3 col-lg-6 col-xl-3 mx-auto mb-4">
-     -->
-      <!--Crie o formulário aqui -->
-     
-                 
-               <!--    <table>
-                    <tr>
-                      <td class="under" style="color: black; font-size: 20px">Nome :</td>
-                      <td><input type="text" id="txtNome"></td>
-                    </tr>
-                    <tr><br>
-                      <td class="under" style="color: black; font-size: 20px">Cidade :</td>
-                      <td><input type="text" id="txtMatricula"></td>
-                    </tr>
-                     <tr><br>
-                      <td class="under" style="color: black; font-size: 20px">Estado :</td>
-                      <td><input type="text" id="txtMatricula"></td>
-                    </tr>
-                    <tr><td></td><td> <br><button input type="button" onclick="criarTime()" value="Criar"class="botao"  >Criar!</button></a></td></tr>
-                  </table>   -->
 
-<section class="container"  style="float: left; width: 45%; background-color: white; padding: 1%; margin-left: 1%; " >
+<section class="container"  style="float: left; width: 50%; background-color: white; padding: 1%; margin-left: 1%; " >
   <div class="container"  >
     <div class="row">
       <div class="col-sm-6">
@@ -332,7 +310,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Apagar Time</h5>
+          <h5 class="modal-title">Apagar Professor</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="resetDeleteModal()">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -348,17 +326,20 @@
       </div>
     </div>
   </div>
-
-
   
   </section>
+
+
+
+<!-- GABRIEL -->
+
+
 
   <section class="container"  style="float: right; width: 45%; background-color: white; padding: 1%; margin-right:  1%; ">
     
     
     <div class="row">
       <div class="col-sm-8">
-
         <!-- botoes com ações gerais -->
         <p class="float-right">
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModalJogo">Novo
@@ -403,8 +384,7 @@
             </div>
             <div class="form-group">
               <label for="timeA">Time A</label>
-              <input type="text" class="form-control" id="timeA" aria-describedby="nameHelp"  
-                placeholder="nome do time A">
+               <input type="text" class="form-control" id="timeA" placeholder="nome do time A">
               
             </div>
             <div class="form-group">
@@ -413,19 +393,19 @@
             </div>
             <div class="form-group">
               <label for="golsTimeA">Gols A</label>
-              <input type="number" class="form-control" id="golsTimeA" placeholder="1">
+              <input type="text" class="form-control" id="golsTimeA" placeholder="1">
             </div>
             <div class="form-group">
               <label for="golsTimeB">Gols B</label>
-              <input type="number" class="form-control" id="golsTimeB" placeholder="5">
+              <input type="text" class="form-control" id="golsTimeB" placeholder="5">
             </div>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="createJogos()">Criar Jogo</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="criaJogos()">Criar Jogo</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="resetCreateFormJogos()">Cancelar</button>
         </div>
-      </div>
+      </div>j
     </div>
   </div>
 
@@ -503,6 +483,9 @@
   
   </section>
 
+
+ 
+
   <div class="content" style="position: relative;">
      <!-- Tablea de LOG -->
       <div class="col-sm-4" style="float: bottom;  margin: 1px; width: 20%">
@@ -532,10 +515,10 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
      <!-- Meus scripts -->
-    <script src="assets/js/jogos.js"></script>
-    <script src="assets/js/popup.js"></script>
-    <script src="assets/js/times.js"></script>
     
+   
+    <script src="assets/js/times.js"></script>
+   
 
     
 </body>

@@ -26,7 +26,7 @@ const golsBupdate = document.getElementById('golsBupdate');
 
 const loggerElement = document.getElementById('logger');
 
-const JogoElement = document.getElementById('jogos');
+const jogoElement = document.getElementById('jogos');
 
 const jogoSelectedElement = document.getElementById('jogosSelected');
 
@@ -80,7 +80,7 @@ function reloadJogo() {
 
   }
 
-  jogoElement.innerHTML = listaJogos;
+  jogoElement.innerHTML = listaJogo;
 
 }
 
@@ -89,7 +89,7 @@ function reloadJogo() {
 function makeJogoRow(jogo) {
 
   return `<tr><th scope="row">${jogos.id}</th>
-          <td>${jogos.timeA}</td><td>${jogos.timeB}</td><td>${jogos.golsA}</td><td>${jogos.golsB}</td>
+          <td>${jogos.timeA}</td><td>${jogos.timeB}</td><td>${jogos.GolsTimeA}</td><td>${jogos.GolsTimeB}</td>
           <td class="text-center">
             <button type="button" class="btn btn-warning" onClick="prepareUpdateForm(${jogos.id})" data-toggle="modal" data-target="#updateModal">editar</button>
             <button type="button" class="btn btn-danger" onClick="prepareForDelete(${jogos.id})" data-toggle="modal" data-target="#deleteModal">apagar</button>
@@ -107,9 +107,9 @@ function resetCreateFormJogos() {
 
   timeB.value = '';
 
-  golsA.value = '';
+  golsTimeA.value = '';
 
-  golsB.value = '';
+  golsTimeB.value = '';
 
 
 }
@@ -292,7 +292,7 @@ async function updateJogo() {
 
 
 
-  const URL = `/api/jogos/${JogoSelected.id}`;
+  const URL = `/api/jogo/${JogoSelected.id}`;
 
   const JogoData = {
 
@@ -382,7 +382,7 @@ async function deleteJogo() {
 
   jogoSelected = null;
 
-  const URL = `/api/jogos/${id}`;
+  const URL = `/api/jogo/${id}`;
 
   const deleteRequest = {
 

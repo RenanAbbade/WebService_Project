@@ -26,7 +26,6 @@ public class timeDAO {
     private PreparedStatement stmR;
     private PreparedStatement stmU;
     private PreparedStatement stmD;
-
     
     private Connection conn;
     
@@ -40,7 +39,6 @@ public class timeDAO {
             this.stmR = this.conn.prepareStatement("SELECT * FROM time_fut");
             this.stmU = this.conn.prepareStatement("UPDATE time_fut SET nome=?, cidade=?, estado=? WHERE id=?");
             this.stmD = this.conn.prepareStatement("DELETE FROM time_fut WHERE id=?");
-      
         
             
         }catch(ClassNotFoundException ex){
@@ -135,8 +133,6 @@ public class timeDAO {
          return false;
          
      }
-     
-    
  
 
  
